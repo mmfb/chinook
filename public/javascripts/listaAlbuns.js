@@ -15,7 +15,8 @@ async function loadAlbuns() {
         });
         let html ="";
         for (let album of albuns) {
-            html += "<section><h3>"+album.Title+"</h3>"+
+            html += "<section onclick='showAlbum("+album.AlbumId+")'>"+
+            "<h3>"+album.Title+"</h3>"+
             "<p> Artista: "+album.Name+"</p></section>";
         }
         elemMain.innerHTML = html;
@@ -26,3 +27,8 @@ async function loadAlbuns() {
                 "<h2> Por favor tente mais tarde</h2>";
     }
 } 
+
+function showAlbum(albumId) {
+    sessionStorage.setItem("albumId",albumId);
+    window.location = "album.html";
+}
