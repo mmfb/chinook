@@ -20,4 +20,14 @@ router.get('/:id', async function(req, res, next) {
      send(result.data);
 });
 
+
+/* GET all albuns */
+router.post('/', async function(req, res, next) {
+  let album = req.body;
+  let result = await albModel.save(album);
+  res.status(result.status).
+     send(result.data);
+});
+
+
 module.exports = router;

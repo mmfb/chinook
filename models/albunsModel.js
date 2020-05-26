@@ -33,3 +33,15 @@ module.exports.getOne = async function(idAlbum) {
         return {status:500, data: err};
     }
 }
+
+module.exports.save = async function(album) {
+    try {
+        let sql ="INSERT INTO album(Title,ArtistId,Cover) "+
+                "VALUES (?,?,?)"
+        let result = await pool.query(sql,[album.Title,album.ArtistId,album.Cover]);
+        return {status:200, data: result};
+    } catch(err) {
+        console.log(err);
+        return {status:500, data: err};
+    }
+}

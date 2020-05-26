@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 
 var albunsRouter = require('./routes/albunsRoutes');
+var artistsRouter = require('./routes/artistsRoutes');
 
 var app = express();
 
@@ -15,5 +16,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/albuns', albunsRouter);
+app.use('/api/artistas', artistsRouter);
 
 module.exports = app;

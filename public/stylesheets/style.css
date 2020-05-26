@@ -1,12 +1,12 @@
 
    
-   header, main, footer, main section {
+   header, main, footer, main section, nav {
     padding: 10px;
     margin: 10px;
     text-align:center;
     color: white;
  }
- 
+ nav { background-color:green;}
  header {  background-color: red; }
  main { 
     background-color: orange; 

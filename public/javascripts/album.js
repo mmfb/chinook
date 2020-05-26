@@ -9,6 +9,14 @@ window.onload = async function() {
         dataType: "json"
     });
     console.log(album);
+    //document.getElementById("cover").src = "/images/cover" + album.AlbumId + ".jpg";  
+    
+    
+    if (album.Cover != null) {
+         document.getElementById("cover").src = album.Cover;
+    }
+    
+
     document.getElementById("titulo").innerHTML = album.Title;
     document.getElementById("artista").innerHTML = album.Name;
 
