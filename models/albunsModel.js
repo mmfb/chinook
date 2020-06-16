@@ -1,6 +1,29 @@
 var pool = require("./connection");
 
-module.exports.getAll = async function() {
+module.exports.getAll = async function(filterObj) {
+    try {
+        let filterQueries = "";
+        let filterValues = [];
+        if (filterObj.title) {
+            filterQueries += " AND Title LIKE ?";
+            filterValues.push("%"+filterObj.title+"%");
+        }
+        if (filterObj.artist) {
+            filterQueries += " AND Name LIKE ?";
+            filterValues.push("%"+filterObj.artist+"%");
+        }
+        let sql = "SELECT * FROM album, artist WHERE album.ArtistId = artist.ArtistId"+
+                        filterQueries;
+        console.log(sql);
+        console.log(filterValues);
+        let albuns = await pool.query(sql,filterValues);
+        return {status:200, data: albuns};
+    } catch(err) {
+        console.log(err);
+        return {status:500, data: err};
+    }
+}
+    /*
     try {
         let sql = "SELECT * FROM album, artist WHERE album.ArtistId = artist.ArtistId";
         let albuns = await pool.query(sql);
@@ -10,6 +33,10 @@ module.exports.getAll = async function() {
         return {status:500, data: err};
     }
 }
+*/
+
+//module.exports.getFiltered = async function(title,artist) {
+ 
 
 module.exports.getOne = async function(idAlbum) {
     try {
@@ -26,6 +53,8 @@ module.exports.getOne = async function(idAlbum) {
         let tracks = await pool.query(sql,[idAlbum]);
 
         album.tracks = tracks;
+
+        
         
         return {status:200, data: album};
     } catch(err) {

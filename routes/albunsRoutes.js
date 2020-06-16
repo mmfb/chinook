@@ -4,10 +4,22 @@ var albModel = require("../models/albunsModel");
 
 /* GET all albuns */
 router.get('/', async function(req, res, next) {
-  let result = await albModel.getAll();
+  let filterObj = req.query;
+  let result = await albModel.getAll(filterObj);
   res.status(result.status).
      send(result.data);
 });
+
+/*
+router.get('/filtered', async function(req, res, next) {
+  let title = req.query.title;
+  let artist = req.query.artist;
+  let result = await albModel.getFiltered(title,artist);
+  res.status(result.status).
+     send(result.data);
+});
+*/
+
 
 
 /* GET one album */
