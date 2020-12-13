@@ -2,4 +2,4 @@
 
 Base de dados disponível neste link:
 
-https://github.com/cwoodruff/ChinookDatabase/tree/master/ChinookDatabase/DataSources
+https://github.com/cwoodruff/ChinookDatabase/tree/master/Scripts
