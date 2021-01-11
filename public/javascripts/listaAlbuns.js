@@ -43,7 +43,8 @@ async function filtrar() {
     try {
         let title = document.getElementById("title").value;
         let artist = document.getElementById("artist").value;
-  
+        let start = sessionStorage.getItem("start");
+        let count = sessionStorage.getItem("count");
         let albuns = await $.ajax({
             url: "/api/albuns?artist="+artist+"&title="+title,
             method: "get",
