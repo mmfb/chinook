@@ -12,7 +12,7 @@ module.exports.getAll = async function(filterObj) {
             filterQueries += " AND Name LIKE ?";
             filterValues.push("%"+filterObj.artist+"%");
         }
-        let sql = "SELECT * FROM album, artist WHERE album.ArtistId = artist.ArtistId"+
+        let sql = "SELECT * FROM Album, Artist WHERE Album.ArtistId = Artist.ArtistId"+
                         filterQueries;
         console.log(sql);
         console.log(filterValues);
@@ -25,7 +25,7 @@ module.exports.getAll = async function(filterObj) {
 }
     /*
     try {
-        let sql = "SELECT * FROM album, artist WHERE album.ArtistId = artist.ArtistId";
+        let sql = "SELECT * FROM Album, Artist WHERE Album.ArtistId = Artist.ArtistId";
         let albuns = await pool.query(sql);
         return {status:200, data: albuns};
     } catch(err) {
@@ -40,17 +40,17 @@ module.exports.getAll = async function(filterObj) {
 
 module.exports.getOne = async function(idAlbum) {
     try {
-        let sql = "SELECT * FROM album, artist WHERE album.ArtistId = artist.ArtistId "+
+        let sql = "SELECT * FROM Album, Artist WHERE Album.ArtistId = Artist.ArtistId "+
                   " AND AlbumId = ?";
         let albuns = await pool.query(sql,[idAlbum]);
         if (albuns.length > 0) {
             let album = albuns[0]; // its only one
 
-            sql = "SELECT TrackId, track.Name AS Name, genre.Name AS Genre, "+
-            "mediaType.Name AS Media, Composer, UnitPrice "+
-            "FROM track,genre,mediatype WHERE "+
-            "track.MediaTypeId = mediatype.MediaTypeId AND "+
-            "track.GenreId = genre.GenreId AND AlbumId = ?";
+            sql = "SELECT TrackId, Track.Name AS Name, Genre.Name AS Genre, "+
+            "MediaType.Name AS Media, Composer, UnitPrice "+
+            "FROM Track,Genre,MediaType WHERE "+
+            "Track.MediaTypeId = MediaType.MediaTypeId AND "+
+            "Track.GenreId = Genre.GenreId AND AlbumId = ?";
             let tracks = await pool.query(sql,[idAlbum]);
 
             album.tracks = tracks;
@@ -67,7 +67,7 @@ module.exports.getOne = async function(idAlbum) {
 
 module.exports.save = async function(album) {
     try {
-        let sql ="INSERT INTO album(Title,ArtistId) VALUES (?,?)";
+        let sql ="INSERT INTO Album(Title,ArtistId) VALUES (?,?)";
         let result = await pool.query(sql,[album.Title,album.ArtistId]);
         return {status:200, data: result};
     } catch(err) {

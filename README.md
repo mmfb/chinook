@@ -4,6 +4,9 @@ Base de dados disponível neste link:
 
 https://github.com/cwoodruff/ChinookDatabase/tree/master/Scripts
 
+Escolham o ficheiro Chinook_MySql_AutoIncrementPKs.sql que é para MySql e tem auto increment nas primary keys
+
+
 Diagrama da Base de dados disponível neste link:
 
 http://schemaspy.org/sample/relationships.html

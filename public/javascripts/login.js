@@ -7,7 +7,7 @@ async function login() {
         }
         
         let customer = await $.ajax({
-            url: "/api/customers/login",
+            url: "/api/clientes/login",
             method: "post",
             data: JSON.stringify(login),
             dataType: "json",

@@ -6,7 +6,7 @@ window.onload = async function() {
         window.location = "login.html";        
     }
     let customer = await $.ajax({
-        url: "/api/customers/"+customerId,
+        url: "/api/clientes/"+customerId,
         method: "get",
         dataType: "json"
     });

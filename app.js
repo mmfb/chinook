@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/albuns', albunsRouter);
 app.use('/api/artistas', artistsRouter);
-app.use('/api/customers', customersRouter);
+app.use('/api/clientes', customersRouter);
 
 module.exports = app;

@@ -1,13 +1,23 @@
 var mysql = require('mysql');
 var util = require('util');
 
-
+/*
+// for local connection
 var pool = mysql.createPool({
     connectionLimit: 20,
     host: 'localhost',
     user: 'root',
     password: 'password',
     database: 'chinook'
+});
+*/
+
+var pool = mysql.createPool({
+  connectionLimit: 20,
+  host: 'remotemysql.com',
+  user: 'X2MuN8QFgF',
+  password: 'M4cY7SDC29',
+  database: 'X2MuN8QFgF'
 });
 
 
