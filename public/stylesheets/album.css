@@ -24,3 +24,6 @@ main > section {
     height: 200px;
     margin:auto;
 }
+#err {
+    color: red;
+}

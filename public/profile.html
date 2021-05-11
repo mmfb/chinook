@@ -1,5 +1,4 @@
 
-
    <html>
     <head>
         <meta charset="UTF-8">
@@ -7,17 +6,18 @@
         <link rel="stylesheet" href="stylesheets/style.css">
         <link rel="stylesheet" href="stylesheets/album.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="javascripts/addAlbum.js"></script>
+        <script src="javascripts/profile.js"></script>
     </head>
     <body>
-        <header> Adicionar Album  </header>       
+        <header id="name">  </header>       
+        <nav><a href="index.html">Back</a></nav>
         <main >
-
-            <h2>Título: <input type="text" id="title"></h2>
-            <h2>Artista: <select id="artist"></select></h2>
-            <h2><input type="button" value="Adicionar" 
-                onclick="addAlbum()"></h2>
+            <h2>Email: <span id="email"> </span></h2>        
+            <h2>Address: <span id="address"> </span></h2>
+            <input type="button" value="Logout" onclick="logout()">
         </main>
         <footer> FOOTER </footer>
     </body>
     </html>
+     
+     

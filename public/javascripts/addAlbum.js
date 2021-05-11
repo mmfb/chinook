@@ -24,7 +24,6 @@ async function addAlbum() {
     try {
         let album = {
             Title: document.getElementById("title").value,
-            Cover: document.getElementById("cover").value,
             ArtistId: parseInt(document.getElementById("artist").value)
         }
         alert(JSON.stringify(album));

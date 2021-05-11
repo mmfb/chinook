@@ -2,7 +2,7 @@ var pool = require("./connection");
 
 module.exports.getAll = async function() {
     try {
-        let sql = "SELECT * FROM artist";
+        let sql = "SELECT * FROM Artist";
         let artists = await pool.query(sql);
         return {status:200, data: artists};
     } catch(err) {
