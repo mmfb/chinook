@@ -1,8 +1,17 @@
 var mysql = require('mysql');
 var util = require('util');
 
+
+var pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'remotemysql.com',
+    user: 'BczP7syL7y',
+    password: 'wNPYLxGdv3',
+    database: 'BczP7syL7y'
+});
+
+
 /*
-// for local connection
 var pool = mysql.createPool({
     connectionLimit: 20,
     host: 'localhost',
@@ -11,14 +20,6 @@ var pool = mysql.createPool({
     database: 'chinook'
 });
 */
-
-var pool = mysql.createPool({
-  connectionLimit: 20,
-  host: 'remotemysql.com',
-  user: 'X2MuN8QFgF',
-  password: 'M4cY7SDC29',
-  database: 'X2MuN8QFgF'
-});
 
 
 // Ping database to check for common exception errors.
